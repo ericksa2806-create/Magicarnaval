@@ -1,0 +1,28 @@
+/* MAGICARNAVAL: hoja de estilos CSS */
+:root { --azul:#1b365d; --naranja:#f7941d; --claro:#f4f7fb; --blanco:#fff; --texto:#253247; --borde:#dce4ee; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:Arial,Helvetica,sans-serif; background:var(--claro); color:var(--texto); line-height:1.6; }
+header { background:linear-gradient(135deg,var(--azul),#274d7e); color:var(--blanco); padding:48px 20px; text-align:center; border-bottom:7px solid var(--naranja); }
+header h1 { margin:0; color:var(--blanco); font-size:2.8rem; letter-spacing:2px; }
+header p { margin:10px 0 0; font-size:1.15rem; }
+h1 { color:var(--azul); text-align:center; }
+h2 { color:var(--azul); border-bottom:3px solid var(--naranja); padding-bottom:8px; margin-top:0; }
+h3 { color:var(--azul); margin-bottom:8px; }
+nav { display:flex; justify-content:center; flex-wrap:wrap; gap:10px 24px; padding:15px 20px; background:var(--blanco); box-shadow:0 2px 8px rgba(27,54,93,.08); }
+nav a { color:var(--azul); font-weight:bold; text-decoration:none; }
+nav a:hover, nav a:focus { color:#a94f00; text-decoration:underline; }
+main { max-width:1100px; margin:0 auto; padding:28px 22px; }
+section { margin:0 0 30px; padding:26px; background:var(--blanco); border:1px solid var(--borde); border-radius:16px; box-shadow:0 5px 18px rgba(27,54,93,.06); }
+section img { display:block; max-width:100%; height:auto; margin:18px auto 0; border-radius:12px; }
+ul, ol { padding-left:26px; } li { margin-bottom:8px; }
+.tarjetas { display:flex; flex-wrap:wrap; gap:20px; align-items:stretch; }
+.tarjeta { flex:1 1 280px; min-width:0; background:var(--blanco); border:1px solid var(--borde); border-top:5px solid var(--naranja); border-radius:12px; padding:18px; text-align:center; box-shadow:0 4px 12px rgba(27,54,93,.08); }
+.tarjeta img { width:100%; max-width:320px; height:auto; margin:0 auto 14px; }
+.etiqueta { display:inline-block; background:#fff0dc; color:var(--azul); font-weight:bold; padding:5px 12px; border-radius:999px; font-size:.9rem; }
+.icono-tarjeta { display:grid; place-items:center; min-height:150px; font-size:4rem; background:#edf3fb; border-radius:10px; margin-bottom:14px; }
+footer { background:var(--azul); color:var(--blanco); text-align:center; padding:28px 20px; margin-top:30px; border-top:7px solid var(--naranja); }
+footer h2 { color:var(--blanco); border-bottom-color:var(--naranja); }
+footer a { color:#ffd59e; overflow-wrap:anywhere; }
+img { max-width:100%; height:auto; } a { overflow-wrap:break-word; }
+@media (max-width:600px) { header { padding:32px 16px; } header h1 { font-size:24px; } header p { font-size:1rem; } nav { gap:8px 14px; padding:12px; } main { padding:12px; } section { padding:18px; } .tarjeta { flex-basis:100%; } }
