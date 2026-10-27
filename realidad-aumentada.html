@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Realidad aumentada | MAGICARNAVAL</title>
 <link rel="stylesheet" href="styles.css">
+
+<style>
+.experiencia-quick-ar{margin:2rem 0;padding:1.25rem;border-radius:18px;background:rgba(255,255,255,.06)}
+.experiencia-quick-ar h2{margin-top:0}
+.selector-quick-ar{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0}
+.selector-quick-ar button{border:0;border-radius:999px;padding:.8rem 1rem;font:inherit;font-weight:700;cursor:pointer;background:#f2bd4b;color:#241a08}
+.marco-quick-ar{width:100%;height:min(72vh,680px);min-height:420px;overflow:hidden;border-radius:14px;background:#111}
+.marco-quick-ar[hidden]{display:none}
+.marco-quick-ar iframe{display:block;width:100%;height:100%;border:0;background:#111}
+.ayuda-quick-ar{font-size:.92rem;opacity:.85}
+@media(max-width:600px){.experiencia-quick-ar{padding:.8rem}.marco-quick-ar{height:70vh;min-height:420px}.selector-quick-ar button{width:100%}}
+</style>
+
 </head>
 <body>
 <header><h1>MAGICARNAVAL</h1><p>La cultura cobra vida ante tus ojos.</p></header>
@@ -15,6 +28,33 @@
 <h2>Realidad aumentada</h2>
 <p>Descubre tres propuestas de carrozas del Carnaval de Negros y Blancos. Cada imagen representa una obra diferente que podría acompañarse de contenido digital, animaciones e información cultural al escanear un código QR.</p>
 <p class="nota-ra"><strong>¿Cómo funcionaría?</strong> Escanea el código QR asociado a una obra, abre su contenido en el teléfono y explora su historia, detalles y elementos visuales. Las imágenes de esta página son una muestra visual del proyecto.</p>
+</section>
+<section class="experiencia-quick-ar" id="probar-realidad-aumentada">
+<h2>Vive las carrozas en realidad aumentada</h2>
+<p>Elige una carroza y pulsa “Iniciar experiencia”. Permite el acceso a la cámara y apunta al marcador correspondiente.</p>
+<div class="selector-quick-ar">
+<button type="button" data-ar-folder="quick-ar-epifania">Epifania</button>
+<button type="button" data-ar-folder="quick-ar-contra-viento-y-marea">Contra viento y marea</button>
+<button type="button" data-ar-folder="quick-ar-inmortal">Inmortal</button>
+</div>
+<div class="marco-quick-ar" id="marco-quick-ar" hidden>
+<iframe id="visor-quick-ar" title="Experiencia de realidad aumentada de MAGICARNAVAL" allow="camera; microphone; gyroscope; accelerometer; magnetometer; xr-spatial-tracking" allowfullscreen></iframe>
+</div>
+<p class="ayuda-quick-ar">Para cambiar de carroza, selecciona otra opción. Cada experiencia utiliza su propio archivo de objetivo de reconocimiento.</p>
+<script>
+(function () {
+  const frame = document.getElementById('visor-quick-ar');
+  const frameWrap = document.getElementById('marco-quick-ar');
+  document.querySelectorAll('[data-ar-folder]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      const folder = button.getAttribute('data-ar-folder');
+      frame.src = folder + '/index.html';
+      frameWrap.hidden = false;
+      frameWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>
 </section>
 <section class="obra-ra">
 <h2>Epifania</h2>
